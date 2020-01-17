@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of devrun.
+ * This file is part of doctrine-module
  * Copyright (c) 2017
  *
  * @file    TranslationTrait.php

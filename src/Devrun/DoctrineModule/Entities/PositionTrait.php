@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of karl-von-bahnhof.
+ * This file is part of doctrine-module
  * Copyright (c) 2018
  *
  * @file    PositionTrait.php

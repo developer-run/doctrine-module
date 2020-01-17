@@ -4,12 +4,11 @@ namespace Devrun\DoctrineModule\Listeners;
 
 use Devrun\DoctrineModule\Entities\BlameableTrait;
 use Devrun\DoctrineModule\Entities\UserEntity;
-use Devrun\DoctrineModule\Repositories\UserRepository;
+use Devrun\DoctrineModule\Repositories\IUserRepository;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Kdyby\Events\Subscriber;
-use Nette\DI\Container;
 use Nette\Security\User;
 
 /**
@@ -20,13 +19,10 @@ use Nette\Security\User;
 class BlameableListener implements Subscriber
 {
 
-    /** @var Container */
-    protected $container;
-
     /** @var UserEntity */
     private $currentUser;
 
-    /** @var UserRepository */
+    /** @var IUserRepository */
     private $userRepository;
 
     /** @var User */
@@ -34,10 +30,15 @@ class BlameableListener implements Subscriber
 
     private $addScheduled = false;
 
-    public function __construct(UserRepository $userRepository, User $user)
+//    public function __construct(IUserRepository $userRepository, User $user)
+    public function __construct(User $user)
     {
         $this->user           = $user;
-        $this->userRepository = $userRepository;
+
+//        dump($user);
+//        die();
+
+//        $this->userRepository = $userRepository;
     }
 
 
@@ -169,7 +170,7 @@ class BlameableListener implements Subscriber
     {
         if (NULL === $this->currentUser) {
             if ($this->user->isLoggedIn()) {
-                if ($userEntity = $this->getUserRepository()->getEntityManager()->getRepository(UserEntity::getClassName())->find($this->user->getIdentity()->getId())) {
+                if ($userEntity = $this->getUserRepository()->find($this->user->getIdentity()->getId())) {
                     $this->currentUser = $userEntity;
                 }
             }
@@ -180,7 +181,7 @@ class BlameableListener implements Subscriber
 
 
     /**
-     * @return UserRepository
+     * @return IUserRepository
      */
     private function getUserRepository()
     {

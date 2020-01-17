@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of souteze.pixman.cz.
+ * This file is part of doctrine-module
  * Copyright (c) 2019
  *
  * @file    SQLLogger.php

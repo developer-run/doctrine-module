@@ -5,6 +5,7 @@
   "homepage": "http://devrun.cz",
   "license": "proprietary",
   "version": "v3.3.1",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Pavel Paulík"
@@ -12,8 +13,11 @@
   ],
   "require": {
     "php":"^7.0",
+    "devrun/framework": "v0.8.*",
     "kdyby/doctrine": "^3.3",
-    "symfony/validator": "^3.4"
+    "nextras/migrations": "^3.1",
+    "symfony/validator": "^3.4",
+    "ext-openssl": "*"
   },
   "repositories": [
     {
@@ -30,9 +34,60 @@
     },
     "devrun": {
       "configuration": {
+
+        "parameters": {
+          "database": {
+            "host": "localhost",
+            "driver": "pdo_mysql",
+            "path": "",
+            "dbname": "",
+            "user": "",
+            "password": ""
+          }
+        },
+
+        "migrations": {
+          "dir": "%appDir%/../migrations",
+          "driver": "mysql",
+          "dbal": "doctrine"
+        },
+
+        "translatable": {
+          "currentLocaleCallable": [
+            "@translation.default",
+            "getLocale"
+          ],
+          "defaultLocaleCallable": [
+            "@translation.default",
+            "getDefaultLocale"
+          ],
+          "translatableTrait": "Devrun\\DoctrineModule\\Entities\\Attributes\\Translatable",
+          "translationTrait": "Devrun\\DoctrineModule\\Entities\\Attributes\\Translation"
+        },
+
+        "doctrine": {
+          "charset": "UTF8",
+          "driver": "%database.driver%",
+          "host": "%database.host%",
+          "path": "%database.path%",
+          "user": "%database.user%",
+          "password": "%database.password%",
+          "dbname": "%database.dbname%",
+          "autoGenerateProxyClasses": "%debugMode%",
+          "proxyDir": "%tempDir%/proxies",
+          "proxyNamespace": "proxy",
+          "cacheClass": "DoctrineModule\\Cache",
+          "secondLevelCache": {
+            "enabled": true
+          }
+        },
+
         "extensions": {
-          "doctrine": "Devrun\\DoctrineModule\\DI\\DoctrineExtension"
+          "doctrine": "Kdyby\\Doctrine\\DI\\OrmExtension",
+          "doctrineModule": "Devrun\\DoctrineModule\\DI\\DoctrineExtension",
+          "migrations": "Nextras\\Migrations\\Bridges\\NetteDI\\MigrationsExtension"
         }
+
       }
     }
   }

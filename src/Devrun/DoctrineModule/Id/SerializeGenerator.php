@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the devrun
+ * This file is part of doctrine-module
  * Copyright (c) 2016
  *
  * @file    SerializeGenerator.php

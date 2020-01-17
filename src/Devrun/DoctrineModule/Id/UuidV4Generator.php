@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the devrun
+ * This file is part of doctrine-module
  * Copyright (c) 2016
  *
  * @file    UuidV4Generator.php
@@ -14,19 +14,6 @@ use Doctrine\ORM\Id\AbstractIdGenerator;
 
 class UuidV4Generator extends AbstractIdGenerator
 {
-
-    /**
-     * Generates an identifier for an entity.
-     * on the PHP manual
-     *
-     * @param EntityManager|EntityManager  $em
-     * @param \Doctrine\ORM\Mapping\Entity $entity
-     *
-     * @return string
-     */
-    public function generateV4(EntityManager $em, $entity) {
-        return self::gen_uuid();
-    }
 
     /**
      * @thanks https://www.php.net/manual/en/function.uniqid.php#94959
