@@ -4,7 +4,6 @@
   "keywords": ["cms", "devrun", "database", "doctrine"],
   "homepage": "http://devrun.cz",
   "license": "proprietary",
-  "version": "v3.3.1",
   "minimum-stability": "dev",
   "authors": [
     {
@@ -12,17 +11,22 @@
     }
   ],
   "require": {
-    "php":"^7.0",
-    "devrun/framework": "v0.8.*",
-    "kdyby/doctrine": "^3.3",
-    "nextras/migrations": "^3.1",
-    "symfony/validator": "^3.4",
+    "php":"^7.2 || ^7.3",
+    "devrun/framework": "v0.9.*",
+
+    "symfony/validator": "^5.1@dev",
+    "nextras/migrations": "^3.1@dev",
+    "kdyby/doctrine": "^4.0@dev",
+    "gedmo/doctrine-extensions": "^3.0@dev",
+    "kdyby/doctrine-magic-accessors": "^1.0@dev",
+    "kdyby/doctrine-collections-lazy": "^1.0@dev",
+
     "ext-openssl": "*"
   },
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/developer-run/doctrine-module"
+      "url": "https://github.com/developer-run/framework"
     }
   ],
   "autoload": {
