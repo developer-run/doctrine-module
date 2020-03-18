@@ -16,13 +16,18 @@ use Devrun\DoctrineModule\Listeners\FlushListener;
 use Devrun\DoctrineModule\Listeners\TimeStableListener;
 use Kdyby\Events\DI\EventsExtension;
 use Nette;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
 
 class DoctrineExtension extends Nette\DI\CompilerExtension
 {
 
-    public $defaults = array(
-        'autoFlush' => false,
-    );
+    public function getConfigSchema(): Schema
+    {
+        return Expect::structure([
+            'autoFlush' => Expect::bool(false),
+        ]);
+    }
 
 
     public static function register(Nette\Configurator $configurator)
@@ -35,7 +40,7 @@ class DoctrineExtension extends Nette\DI\CompilerExtension
     public function loadConfiguration()
     {
         $builder = $this->getContainerBuilder();
-        $config  = $this->getConfig($this->defaults);
+        $config  = $this->getConfig();
 
         $builder->addDefinition($this->prefix('entityFormMapper'))
                 ->setFactory(EntityFormMapper::class);
@@ -56,7 +61,7 @@ class DoctrineExtension extends Nette\DI\CompilerExtension
 
         // uow flush
         $builder->addDefinition($this->prefix('listener.flush'))
-                ->setFactory(FlushListener::class, [$config['autoFlush']])
+                ->setFactory(FlushListener::class, [$config->autoFlush])
                 ->addTag(EventsExtension::TAG_SUBSCRIBER);
 
         // tree

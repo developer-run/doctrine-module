@@ -154,7 +154,7 @@ trait EntityFormTrait
 
 
 
-    public function fireEvents()
+    public function fireEvents(): void
     {
         /** @var EntityFormTrait|UI\Form $this */
 

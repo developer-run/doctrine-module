@@ -39,7 +39,7 @@ class FakeIdentity implements IIdentity
     /**
      * @return array
      */
-    public function getRoles()
+    public function getRoles(): array
     {
         return array();
     }

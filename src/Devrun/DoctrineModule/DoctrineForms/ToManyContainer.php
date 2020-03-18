@@ -56,7 +56,7 @@ class ToManyContainer extends Nette\Forms\Container
 
 
 
-	protected function validateParent(Nette\ComponentModel\IContainer $parent)
+	protected function validateParent(Nette\ComponentModel\IContainer $parent): void
 	{
 		parent::validateParent($parent);
 		$this->monitor('Nette\Application\UI\Presenter');
@@ -146,9 +146,8 @@ class ToManyContainer extends Nette\Forms\Container
 	}
 
 
-
-	protected function createComponent($name)
-	{
+    protected function createComponent($name): ?Nette\ComponentModel\IComponent
+    {
 		$class = $this->containerClass;
 		$this[$name] = $container = new $class();
 		$this->containerFactory->invoke($container, $this->parent);
@@ -161,7 +160,7 @@ class ToManyContainer extends Nette\Forms\Container
 	/**
 	 * @param \Nette\ComponentModel\Container $obj
 	 */
-	protected function attached($obj)
+	protected function attached($obj): void
 	{
 		parent::attached($obj);
 

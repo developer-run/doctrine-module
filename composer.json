@@ -17,9 +17,9 @@
     "symfony/validator": "^5.1@dev",
     "nextras/migrations": "^3.1@dev",
     "kdyby/doctrine": "^4.0@dev",
-    "gedmo/doctrine-extensions": "^3.0@dev",
     "kdyby/doctrine-magic-accessors": "^1.0@dev",
     "kdyby/doctrine-collections-lazy": "^1.0@dev",
+    "zenify/doctrine-behaviors": "^v4.2",
 
     "ext-openssl": "*"
   },
@@ -89,6 +89,7 @@
         "extensions": {
           "doctrine": "Kdyby\\Doctrine\\DI\\OrmExtension",
           "doctrineModule": "Devrun\\DoctrineModule\\DI\\DoctrineExtension",
+          "translatable": "Zenify\\DoctrineBehaviors\\DI\\TranslatableExtension",
           "migrations": "Nextras\\Migrations\\Bridges\\NetteDI\\MigrationsExtension"
         }
 

@@ -51,7 +51,7 @@ class UserStorage extends \Nette\Http\UserStorage
      * @return IIdentity|object|NULL
      * @throws \Doctrine\ORM\ORMException
      */
-    public function getIdentity()
+    public function getIdentity(): ?IIdentity
     {
         $identity = parent::getIdentity();
 
