@@ -14,7 +14,7 @@ use Nette\Utils\DateTime;
  *
  * @package CmsModule\Listeners
  */
-class TimeStableListener implements Subscriber
+class TimestampableListener implements Subscriber
 {
 
     private $addScheduled = false;
