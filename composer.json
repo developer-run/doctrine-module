@@ -19,6 +19,7 @@
     "kdyby/doctrine": "^4.0@dev",
     "kdyby/doctrine-magic-accessors": "^1.0@dev",
     "kdyby/doctrine-collections-lazy": "^1.0@dev",
+    "kdyby/doctrine-dbal-batchimport": "dev-master",
     "zenify/doctrine-behaviors": "^v4.2",
 
     "ext-openssl": "*"
@@ -65,6 +66,8 @@
             "@translation.default",
             "getDefaultLocale"
           ],
+          "translatableFetchMode": "LAZY",
+          "translationFetchMode": "LAZY",
           "translatableTrait": "Devrun\\DoctrineModule\\Entities\\Attributes\\Translatable",
           "translationTrait": "Devrun\\DoctrineModule\\Entities\\Attributes\\Translation"
         },
