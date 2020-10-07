@@ -2,9 +2,8 @@
 
 namespace Devrun\DoctrineModule\Listeners;
 
-use Devrun\DoctrineModule\Entities\BlameableTrait;
-use Devrun\DoctrineModule\Entities\UserEntity;
-use Devrun\DoctrineModule\Repositories\IUserRepository;
+use Devrun\CmsModule\Entities\BlameableTrait;
+use Devrun\CmsModule\Entities\UserEntity;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\ClassMetadata;
