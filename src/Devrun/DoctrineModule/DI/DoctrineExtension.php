@@ -122,8 +122,7 @@ class DoctrineExtension extends Nette\DI\CompilerExtension
             $builder->addDefinition($this->prefix('timestampable'))
                     // ->setType(\Gedmo\Timestampable\TimestampableListener::class)
                     ->setType(TimestampableListener::class)
-                    ->addTag(EventsExtension::TAG_SUBSCRIBER)
-                    ->addSetup('setAnnotationReader', ['@' . Reader::class]);
+                    ->addTag(EventsExtension::TAG_SUBSCRIBER);
         }
 
         // translate
