@@ -16,7 +16,7 @@
 
     "symfony/validator": "^5.1@dev",
     "nextras/migrations": "^3.1@dev",
-    "kdyby/doctrine": "^4.0@dev",
+    "devrun/doctrine": "4.0.x-dev",
     "kdyby/doctrine-magic-accessors": "^1.0@dev",
     "kdyby/doctrine-collections-lazy": "^1.0@dev",
     "kdyby/doctrine-dbal-batchimport": "dev-master",
@@ -29,6 +29,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/developer-run/framework"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/Doctrine"
     }
   ],
   "autoload": {
