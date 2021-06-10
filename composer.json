@@ -4,6 +4,7 @@
   "keywords": ["cms", "devrun", "database", "doctrine"],
   "homepage": "http://devrun.cz",
   "license": "proprietary",
+  "version": "v4.0.1",
   "minimum-stability": "dev",
   "authors": [
     {
